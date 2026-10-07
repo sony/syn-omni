@@ -1,0 +1,64 @@
+# qa
+AVHBenchQA:
+    dataset_parser: avhbench_qa
+    dataset_name: AVHBenchQA
+    eval_type: local
+    num_frames: 8
+DailyOmni:
+    dataset_parser: dailyomni
+    dataset_name: DailyOmni
+    eval_type: local
+    num_frames: 8
+
+# a-v retrieval
+AVE_V2A:
+    dataset_parser: ave
+    dataset_name: AVE
+    eval_type: global
+    num_frames: 8
+    eval_mode: "V2A"
+AVE_A2V:
+    dataset_parser: ave
+    dataset_name: AVE
+    eval_type: global
+    num_frames: 8
+    eval_mode: "A2V"
+VALOR32k_V2A:
+    dataset_parser: valor32k
+    dataset_name: VALOR32k
+    eval_type: global
+    num_frames: 8
+    eval_mode: "V2A"
+VALOR32k_A2V:
+    dataset_parser: valor32k
+    dataset_name: VALOR32k
+    eval_type: global
+    num_frames: 8
+    eval_mode: "A2V"
+
+# avt retrieval
+AVHBench_T2VA:
+    dataset_parser: avhbench_caption
+    dataset_name: AVHBenchCaption
+    eval_type: global
+    num_frames: 8
+    eval_mode: "T2VA"
+AVHBench_VA2T:
+    dataset_parser: avhbench_caption
+    dataset_name: AVHBenchCaption
+    eval_type: global
+    num_frames: 8
+    eval_mode: "VA2T"
+
+VALOR32k_T2VA:
+    dataset_parser: valor32k
+    dataset_name: VALOR32k
+    eval_type: global
+    num_frames: 8
+    eval_mode: "T2VA"
+VALOR32k_VA2T:
+    dataset_parser: valor32k
+    dataset_name: VALOR32k
+    eval_type: global
+    num_frames: 8
+    eval_mode: "VA2T"

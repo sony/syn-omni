@@ -1,0 +1,63 @@
+# classification
+ESC50:
+    dataset_parser: esc50
+    dataset_name: "ESC-50"
+    eval_type: global
+GTZAN:
+    dataset_parser: gtzan
+    dataset_name: GTZAN
+    eval_type: global
+NSynth:
+    dataset_parser: nsynth
+    dataset_name: NSynth
+    eval_type: global
+
+# qa
+MMAU:
+    dataset_parser: mmau
+    dataset_name: MMAU
+    eval_type: local
+MMAR:
+    dataset_parser: mmar
+    dataset_name: MMAR
+    eval_type: local
+
+# retrieval
+AudioCaps:
+    dataset_parser: audiocaps
+    dataset_name: AudioCaps
+    data_root: None
+    eval_type: global
+AudioCaps_A2T:
+    dataset_parser: audiocaps
+    dataset_name: AudioCaps
+    data_root: None
+    eval_type: global
+    eval_mode: A2T
+Clotho:
+    dataset_parser: clotho
+    dataset_name: Clotho
+    data_root: None
+    eval_type: global
+Clotho_A2T:
+    dataset_parser: clotho
+    dataset_name: Clotho
+    data_root: None
+    eval_type: global
+    eval_mode: A2T
+MusicCaps:
+    dataset_parser: musiccaps
+    dataset_name: MusicCaps
+    data_root: None
+    eval_type: global
+MusicCaps_A2T:
+    dataset_parser: musiccaps
+    dataset_name: MusicCaps
+    data_root: None
+    eval_type: global
+    eval_mode: A2T
+SoundDescs:
+    dataset_parser: sounddescs
+    dataset_name: SoundDescs
+    eval_type: global
+    filter_corpus: True

@@ -1,0 +1,18 @@
+einops
+gdown
+hjson
+hnswlib
+numpy==1.26.4
+opencv-contrib-python
+opencv-python
+pillow
+py-cpuinfo
+pytrec-eval
+qwen-vl-utils[decord]==0.0.8  # https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/discussions/30
+scikit-image
+scikit-learn
+scipy
+sentencepiece
+timm
+tqdm
+wrapt

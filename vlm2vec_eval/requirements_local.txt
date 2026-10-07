@@ -1,0 +1,74 @@
+# Local (no-Docker) setup: this project is normally run inside a Docker image
+# (see docker/) built on top of an NVIDIA PyTorch base image. If you are not
+# using that image, install this file INSTEAD OF (not in addition to) plain
+# `requirements.txt` -- it is a superset that also covers what the base image
+# otherwise provides.
+#
+# Versions below were captured from a working container (base image +
+# on-top layer) on 2026-02-05. Pin mismatches with the base `requirements.txt`
+# (e.g. qwen-vl-utils) are resolved here in favor of what was actually running.
+#
+# 1) Install torch/torchvision/torchaudio for CUDA 12.8 from PyTorch's own
+#    index first (the default PyPI index resolves to a CPU-only build):
+#
+#    pip install torch==2.9.1 torchvision==0.24.1 torchaudio==2.9.1 \
+#        --index-url https://download.pytorch.org/whl/cu128
+#
+# 2) Then install this file:
+#
+#    pip install -r requirements_local.txt
+#
+# 3) flash-attn needs torch + a CUDA toolchain already present to build;
+#    install it last, after step 1/2, and expect a long build time:
+#
+#    pip install flash_attn==2.8.3 --no-build-isolation
+
+# --- core HF stack ---
+transformers==4.52.3
+accelerate==1.12.0
+peft==0.18.1
+datasets==4.4.1
+tokenizers==0.21.4
+safetensors==0.7.0
+huggingface_hub==0.36.1
+hf_xet==1.2.0
+
+# --- qwen omni / multimodal io ---
+qwen_vl_utils==0.0.14
+qwen_omni_utils==0.0.8
+decord==0.6.0
+av==16.1.0
+torchcodec==0.8.0
+librosa==0.11.0
+soundfile==0.13.1
+soxr==1.0.0
+audioread==3.1.0
+
+# --- misc ---
+einops==0.8.2
+GradCache==0.1.0
+pandas==3.0.0
+scikit-learn==1.8.0
+scipy==1.17.0
+numba==0.63.1
+pyarrow==23.0.0
+pydantic==2.12.5
+wandb==0.24.2
+GitPython==3.1.46
+tabulate==0.9.0
+
+# --- everything else vlm2vec_eval itself needs (same as requirements.txt) ---
+gdown
+hjson
+hnswlib
+numpy==1.26.4
+opencv-contrib-python
+opencv-python
+pillow
+py-cpuinfo
+pytrec-eval
+scikit-image
+sentencepiece
+timm
+tqdm
+wrapt
