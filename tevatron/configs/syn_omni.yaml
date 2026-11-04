@@ -1,0 +1,449 @@
+defaults:
+  num_proc: 8
+  seed: 42
+  prefixes:
+    query: "Query: "
+    corpus: ""
+
+# Each entry under `datasets` defines one training view.
+datasets:
+
+  ## MMEB-Train; image to text
+  ImageNet_1K:  # Subset name
+    build_cls_name: mmeb_train  # registry
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "I->T"
+  N24News:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "TI->T"
+  HatefulMemes:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "I->T"
+  VOC2007:
+    build_cls_name: mmeb_train 
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "I->T"
+  SUN397:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "I->T"
+  OK-VQA:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "TI->T"
+  A-OKVQA:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "TI->T"
+  DocVQA:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "TI->T"
+  InfographicsVQA:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "TI->T"
+  ChartQA:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 15000
+    modality_composition: "TI->T"
+  # retrieval, grounding
+  Visual7W:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "TI->T"
+  VisDial:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "T->I"
+  CIRR:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "TI->I"
+  VisualNews_t2i:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "T->I"
+  VisualNews_i2t:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "I->T"
+  MSCOCO_t2i:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "T->I"
+  MSCOCO_i2t:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "I->T"
+  NIGHTS:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "I->I"
+  WebQA:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "T->IT"
+  MSCOCO:
+    build_cls_name: mmeb_train
+    data: mmeb_train
+    name: TIGER-Lab/MMEB-train
+    max_samples: 20000
+    modality_composition: "TI->I"
+
+  # llavahound video caption dataset
+  llavahound_caption_t2v:
+    build_cls_name: llavahound_caption  # registry
+    data: llavahound
+    name: ShareGPTVideo/train_video_and_instruction
+    split: train
+    data_files: video_caption_300k.jsonl
+    max_samples: 30000
+    data_mode: t2v
+    modality_composition: "T->V"
+  llavahound_caption_v2t:
+    build_cls_name: llavahound_caption  # registry
+    data: llavahound
+    name: ShareGPTVideo/train_video_and_instruction
+    split: train
+    data_files: video_caption_300k.jsonl
+    max_samples: 30000
+    data_mode: v2t
+    modality_composition: "V->T"
+  # llavahound video qa dataset
+  llavahound_qa:
+    build_cls_name: llavahound_qa  # registry
+    data: llavahound
+    name: ShareGPTVideo/train_video_and_instruction
+    split: train
+    data_files: chatgpt_qa_240k.jsonl
+    max_samples: 30000
+    modality_composition: "TV->T"
+
+  pvd_v2t:
+    build_cls_name: pvd  # registry
+    data: pvd
+    name: facebook/PE-Video
+    data_files: "pvd_annotations.json"
+    max_samples: 40000
+    modality_composition: "V->T"
+  pvd_t2v:
+    build_cls_name: pvd  # registry
+    data: pvd
+    name: facebook/PE-Video
+    data_files: "pvd_annotations.json"
+    max_samples: 40000
+    modality_composition: "T->V"
+
+  # MSVD
+  msvd_v2t:
+    data: msvd
+    name: friedrichor/MSVD
+    split: train
+    max_samples: 1200
+    modality_composition: "V->T"
+    query:
+      prefix: "Find a text that best describes the content of the provided video."
+      modalities:
+        video: video
+    corpus:
+      modalities:
+        text: caption
+  msvd_t2v:
+    data: msvd
+    name: friedrichor/MSVD
+    split: train
+    max_samples: 1200
+    modality_composition: "T->V"
+    query:
+      prefix: "Find a video that contains the following content: "
+      modalities:
+        text: caption
+    corpus:
+      prefix: "Understand the content of the provided video."
+      modalities:
+        video: video
+
+  # MSR-VTT
+  msrvtt_v2t:
+    data: msrvtt
+    name: friedrichor/MSR-VTT
+    config_name: train_9k
+    split: train
+    max_samples: 9000
+    modality_composition: "V->T"
+    query:
+      prefix: "Find a text that best describes the content of the provided video."
+      modalities:
+        video: video
+    corpus:
+      modalities:
+        text: caption
+  msrvtt_t2v:
+    data: msrvtt
+    name: friedrichor/MSR-VTT
+    config_name: train_9k
+    split: train
+    max_samples: 9000
+    modality_composition: "T->V"
+    query:
+      prefix: "Find a video that contains the following content: "
+      modalities:
+        text: caption
+    corpus:
+      prefix: "Understand the content of the provided video."
+      modalities:
+        video: video
+
+  # ActivityNet-Captions
+  activitynet_v2t:
+    data: activitynet
+    name: friedrichor/ActivityNet_Captions
+    split: train
+    max_samples: 10008
+    modality_composition: "V->T"
+    query:
+      prefix: "Find a text that best describes the content of the provided video."
+      modalities:
+        video: video
+    corpus:
+      modalities:
+        text: caption
+  activitynet_t2v:
+    data: activitynet
+    name: friedrichor/ActivityNet_Captions
+    split: train
+    max_samples: 10008
+    modality_composition: "T->V"
+    query:
+      prefix: "Find a video that contains the following content: "
+      modalities:
+        text: caption
+    corpus:
+      prefix: "Understand the content of the provided video."
+      modalities:
+        video: video
+
+  # DiDeMo
+  didemo_v2t:
+    data: didemo
+    name: friedrichor/DiDeMo
+    split: train
+    max_samples: 8395
+    modality_composition: "V->T"
+    query:
+      prefix: "Find a text that best describes the content of the provided video."
+      modalities:
+        video: video
+    corpus:
+      modalities:
+        text: caption
+  didemo_t2v:
+    data: didemo
+    name: friedrichor/DiDeMo
+    split: train
+    max_samples: 8395
+    modality_composition: "T->V"
+    query:
+      prefix: "Find a video that contains the following content: "
+      modalities:
+        text: caption
+    corpus:
+      prefix: "Understand the content of the provided video."
+      modalities:
+        video: video
+
+  # Audio-to-Text retrieval (audio as query, text as corpus)
+  audiocaps_a2t:
+    build_cls_name: audio_text_data
+    data: audiocaps                    # distinct name
+    name: CLAPv2/audiocaps             # Hugging Face dataset name or local path
+    split: train
+    glob_pattern: "data/train/*.parquet"
+    data_files: null
+    max_samples: 45000                 # Limit number of rows (null = use all); 50000
+    modality_composition: "A->T"
+
+    # Query side definition (built from the same row)
+    query:
+      prefix: "Find a text that best describes what can be heard in the provided audio."  # Overrides defaults.prefixes.query if set
+      modalities:
+        audio: audio                   # Column used as audio query
+
+    # Corpus (positive document) definition (built from the same row)
+    corpus:
+      prefix: ""                     # Overrides defaults.prefixes.passage if set
+      modalities:
+        text: text                     # Column used as text document
+
+  audiocaps_t2a:
+    build_cls_name: audio_text_data
+    data: audiocaps
+    name: CLAPv2/audiocaps
+    split: train
+    glob_pattern: "data/train/*.parquet"
+    max_samples: 45000
+    modality_composition: "T->A"
+    query:
+      prefix: "Find an audio clip that matches the following description: "
+      modalities:
+        text: text
+    corpus:
+      prefix: "Understand what can be heard in the provided audio."
+      modalities:
+        audio: audio
+
+  # WavCaps
+  wavcaps_a2t:
+    build_cls_name: wavcaps
+    data: wavcaps
+    name: cvssp/WavCaps
+    max_samples: 45000
+    modality_composition: "A->T"
+
+  wavcaps_t2a:
+    build_cls_name: wavcaps
+    data: wavcaps
+    name: cvssp/WavCaps
+    max_samples: 45000
+    modality_composition: "T->A"
+
+  # audioset strong classification
+  audioset_strong_a2t:
+    build_cls_name: audio_text_data
+    data: audioset_strong
+    name: CLAPv2/audioset_strong
+    split: train
+    glob_pattern: "data/train/*.parquet"
+    max_samples: 20000
+    modality_composition: "A->T"
+    query:
+      prefix: "Identify and describe the types of sounds present in the given audio."
+      modalities:
+        audio: audio
+    corpus:
+      modalities:
+        text: text
+
+  # MusicCaps
+  musiccaps_a2t:
+    build_cls_name: musiccaps
+    data: musiccaps
+    name: CLAPv2/MusicCaps
+    split: train
+    glob_pattern: "*.parquet"
+    max_samples: 2580
+    modality_composition: "A->T"
+    query:
+      prefix: "Find a text that best describes the provided music."
+      modalities:
+        audio: audio
+    corpus:
+      prefix: ""
+      modalities:
+        text: caption
+  musiccaps_t2a:
+    build_cls_name: musiccaps
+    data: musiccaps
+    name: CLAPv2/MusicCaps
+    split: train
+    glob_pattern: "*.parquet"
+    max_samples: 2580  # 2580
+    modality_composition: "T->A"
+    query:
+      prefix: "Find a music audio clip that matches the following description: "
+      modalities:
+        text: caption
+    corpus:
+      prefix: "Understand the musical content of the provided audio."
+      modalities:
+        audio: audio
+
+  # musicbench
+  musicbench_a2t:
+    data: musicbench
+    name: amaai-lab/MusicBench
+    split: train
+    max_samples: 20000  # 50000
+    modality_composition: "A->T"
+    query:
+      prefix: "Find a text that best describes the provided music."
+      modalities:
+        audio: location
+    corpus:
+      prefix: ""
+      modalities:
+        text: main_caption
+  musicbench_t2a:
+    data: musicbench
+    name: amaai-lab/MusicBench
+    split: train
+    max_samples: 20000
+    modality_composition: "T->A"
+    query:
+      prefix: "Find a music audio clip that matches the following description: "
+      modalities:
+        text: main_caption
+    corpus:
+      prefix: "Understand the musical content of the provided audio."
+      modalities:
+        audio: location
+
+  # MusicInstruct
+  musicinstruct:
+    build_cls_name: musicinstruct  # registry
+    data: musicinstruct
+    name: m-a-p/Music-Instruct
+    split: train
+    data_files: music_instruct.json
+    max_samples: 20000
+    modality_composition: "TA->T"
+
+  avinstruct:
+    build_cls_name: avinstruct  # registry
+    data: avinstruct
+    name: avinstruct
+    split: train
+    data_files: ["avqa_data1.json", "avqa_data2.json"]
+    max_samples: 20000
+    modality_composition: "TVA->T"
