@@ -198,7 +198,7 @@ class MixtureOfLoRA(nn.Module):
         return combined_delta * self.scaling, None
 
     def forward(self, x, **kwargs):
-        delta = self.get_delta(x, **kwargs)
+        delta, _ = self.get_delta(x, **kwargs)
         if self.base_layer is None:
             return delta
         return self.base_layer(x) + delta

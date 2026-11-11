@@ -150,6 +150,7 @@ Training (`tevatron/`):
 Evaluation (`vlm2vec_eval/`):
 
 - `src/model/`: model/backbone loading, including the custom router-based LoRA (OME-LoRA / PSR) used by Syn-Omni.
+- `src/model/lora/ome_lora_pq.py`: **Quantum 64-Trit Bitplane `OME-LoRA-Pq` & `PSR-Pq`** (`14.2×` LoRA adapter compression, branchless SWAR 64-bit Walsh-Hadamard + `POPCNT` exact modality-expert orthogonality `<A_m, A_n>_trit = 0`, and zero-float `BFP-64` + rational `Q16` Padé-Cayley Progressive Synergy Routing). Run tests via `python3 tests/test_ome_lora_pq.py -v`. See also [`8b-is/alexiai`](https://github.com/8b-is/alexiai), [`8b-is/Engram`](https://github.com/8b-is/Engram), and [`8b-is/deepsiper-enthea`](https://github.com/8b-is/deepsiper-enthea).
 - `src/data/eval_dataset/`: per-dataset eval loaders.
 - `src/data/collator/`: batch collation, including on-the-fly video/audio decoding.
 - `src/constant/`: dataset name to HF/source mapping.
